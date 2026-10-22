@@ -3,7 +3,7 @@
 // canonical links, Open Graph tags, the sitemap and robots.txt.
 
 export const site = {
-  url: 'https://arpan-ghosh.vercel.app',
+  url: 'https://arpan-ghosh-portfolio.onrender.com',
   title: 'Arpan Ghosh · ML, Data Science & AI Engineer',
   description:
     'Arpan Ghosh: M.Tech CS student in Kolkata looking for remote ML, Data Science and AI Engineer internships. Live demos of NibbleContract AI, Attendly and Movexa.',
