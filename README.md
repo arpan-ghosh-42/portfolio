@@ -59,13 +59,29 @@ Set `video` on a project to a YouTube or Loom URL. A "Watch demo" button then ap
 video: 'https://www.loom.com/share/your-video-id',
 ```
 
+### Project screenshots
+
+Each project has an optional `image`. Screenshots live in `public/projects/` as WebP files (about 1200px wide):
+
+```ts
+image: {
+  src: '/projects/attendly.webp',
+  alt: 'Attendly home screen with Student Portal and Teacher Portal options.',
+  width: 1200, // the file's real pixel size, so the page doesn't jump while it loads
+  height: 675,
+  caption: 'optional text for the frame’s top bar', // defaults to the live demo's address
+},
+```
+
+To replace one, save a new screenshot over the file (or add a new file and update `src`), and keep `width` and `height` in step with the image. Leave `image` out to show no screenshot.
+
 ### How the skills filter works
 
 Clicking a skill highlights every project whose `skills` array contains that exact string. When you add a skill to `skills.ts`, add the same string to the `skills` array of any project that uses it. A skill used by no project still works; the filter bar says it isn't in a featured project yet.
 
 ### Project card layout
 
-The first project and any project without a live demo span the full width on larger screens; the others sit two per row.
+The first project and any project without a live demo span the full width on larger screens, with the screenshot beside the text; the others sit two per row with the screenshot on top.
 
 ## SEO, social image and favicon
 

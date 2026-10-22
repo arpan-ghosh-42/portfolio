@@ -22,6 +22,18 @@ export interface ProjectResult {
   note?: string;
 }
 
+export interface ProjectImage {
+  /** Path inside public/, e.g. '/projects/attendly.webp'. */
+  src: string;
+  /** Describe what the screenshot shows, for screen readers. */
+  alt: string;
+  /** Pixel size of the file (prevents layout shift while it loads). */
+  width: number;
+  height: number;
+  /** Text in the frame's top bar. Defaults to the live demo's address. */
+  caption?: string;
+}
+
 export interface Project {
   /** Stable id used for anchors and the skills filter. */
   id: string;
@@ -42,6 +54,8 @@ export interface Project {
   live?: string;
   /** One or more GitHub repositories. */
   repos: Link[];
+  /** Screenshot shown on the card. Leave undefined to show none. */
+  image?: ProjectImage;
   /** Showcase video (YouTube / Loom). A "Watch demo" button appears when set. */
   video?: string;
   /** Real, measured results. The block renders only when this has items. */

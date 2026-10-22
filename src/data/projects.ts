@@ -7,6 +7,8 @@ import type { Project } from './types.ts';
 // The results block only appears when the array has items.
 //
 // To add a showcase video, set `video` to a YouTube or Loom URL.
+//
+// Screenshots live in public/projects/. Keep width/height equal to the file's real size.
 
 const ML_REPO = 'https://github.com/arpan-ghosh-42/MACHINE-LEARNING';
 const DL_REPO = 'https://github.com/arpan-ghosh-42/Deep-Learning';
@@ -26,6 +28,12 @@ export const projects: Project[] = [
     skills: ['Python', 'Flask', 'Groq & OpenAI APIs', 'REST APIs', 'RDAP', 'Render', 'Git'],
     live: 'https://nibblecontract-ai.onrender.com',
     repos: [{ label: 'GitHub', url: 'https://github.com/arpan-ghosh-42/NibbleContract-AI' }],
+    image: {
+      src: '/projects/nibblecontract.webp',
+      alt: 'NibbleContract AI home page: a sample internship offer flagged with four red flags and a trust score of 1 out of 100.',
+      width: 1200,
+      height: 675,
+    },
     video: undefined, // e.g. 'https://www.loom.com/share/...'
     results: [],
     pipeline: [
@@ -52,6 +60,13 @@ export const projects: Project[] = [
     ],
     live: 'https://ai-attendance-ufui.onrender.com/',
     repos: [{ label: 'GitHub', url: 'https://github.com/arpan-ghosh-42/AI-Attendance-System' }],
+    image: {
+      src: '/projects/attendly.webp',
+      alt: 'Attendly home screen with Student Portal and Teacher Portal options.',
+      width: 1200,
+      height: 675,
+    },
+    video: undefined, // e.g. 'https://www.loom.com/share/...'
     results: [],
     pipeline: [
       { label: 'Group photo', detail: 'One photo of the whole class.' },
@@ -75,6 +90,13 @@ export const projects: Project[] = [
     skills: ['Python', 'Streamlit', 'MediaPipe', 'RAG', 'Docker', 'Render', 'Git'],
     live: 'https://ai-gym-coach-b5j7.onrender.com',
     repos: [{ label: 'GitHub', url: 'https://github.com/arpan-ghosh-42/ai-gym-coach' }],
+    image: {
+      src: '/projects/movexa.webp',
+      alt: 'Movexa landing page: "Your plan. Your form. AI-coached." with a button to launch the app.',
+      width: 1200,
+      height: 675,
+    },
+    video: undefined, // e.g. 'https://www.loom.com/share/...'
     results: [],
     pipeline: [
       { label: 'Camera', detail: 'Your webcam or phone camera, in the browser.' },
@@ -104,6 +126,13 @@ export const projects: Project[] = [
       { label: 'Machine Learning', url: ML_REPO },
       { label: 'Deep Learning', url: DL_REPO },
     ],
+    image: {
+      src: '/projects/research.webp',
+      alt: 'Bar chart from the Machine Learning repo comparing held-out test accuracy across the classification notebooks.',
+      width: 1200,
+      height: 1014,
+      caption: 'MACHINE-LEARNING / images / results_classification.png',
+    },
     results: [],
     pipeline: [
       { label: 'Real dataset', detail: 'Tabular, image or text data from a real problem.' },

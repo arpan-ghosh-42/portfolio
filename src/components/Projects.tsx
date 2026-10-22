@@ -7,7 +7,7 @@ export function Projects({ activeSkill }: { activeSkill: string | null }) {
   return (
     <Section
       id="projects">
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2">
         {projects.map((p, i) => {
           // The flagship (first) project and repo-only projects span the full row.
           const wide = i === 0 || !p.live;
