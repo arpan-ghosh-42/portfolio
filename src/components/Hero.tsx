@@ -23,6 +23,17 @@ export function Hero() {
 
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
         <div>
+          {profile.photo && (
+            <img
+              src={asset(profile.photo.src)}
+              alt={profile.photo.alt}
+              width={profile.photo.width}
+              height={profile.photo.height}
+              decoding="async"
+              style={step(0)}
+              className="rise mb-6 ml-1.5 size-28 rounded-full object-cover ring-2 ring-accent ring-offset-4 ring-offset-bg sm:mb-8 sm:size-40"
+            />
+          )}
           {profile.status.open && (
             <p
               style={step(0)}
