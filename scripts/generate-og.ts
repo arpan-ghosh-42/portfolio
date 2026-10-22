@@ -36,21 +36,21 @@ const network = (() => {
     for (const a of pts[l]) for (const b of pts[l + 1]) edges += `<line x1="${a[0]}" y1="${a[1]}" x2="${b[0]}" y2="${b[1]}"/>`;
   const nodes = pts
     .flat()
-    .map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${i % 4 === 1 ? 7 : 5}" fill="${i % 4 === 1 ? '#ff6b35' : '#3a3f4b'}"/>`)
+    .map(([x, y], i) => `<circle cx="${x}" cy="${y}" r="${i % 4 === 1 ? 7 : 5}" fill="${i % 4 === 1 ? '#a78bfa' : '#3b3950'}"/>`)
     .join('');
-  return `<svg width="330" height="252" viewBox="0 0 420 320"><g stroke="#ff6b35" stroke-opacity=".18">${edges}</g>${nodes}</svg>`;
+  return `<svg width="330" height="252" viewBox="0 0 420 320"><g stroke="#a78bfa" stroke-opacity=".18">${edges}</g>${nodes}</svg>`;
 })();
 
 const og = `<!doctype html><html><head><meta charset="utf-8"><link rel="stylesheet" href="${fonts}"><style>
   *{margin:0;box-sizing:border-box}
-  body{width:1200px;height:630px;background:#0d0e11;color:#ecebe6;font-family:'Instrument Sans',sans-serif;
+  body{width:1200px;height:630px;background:#0d0c13;color:#ecebf2;font-family:'Instrument Sans',sans-serif;
     background-image:radial-gradient(rgba(236,235,230,.07) 1px,transparent 1px);background-size:22px 22px;position:relative;overflow:hidden}
-  .glow{position:absolute;right:-160px;top:-160px;width:620px;height:620px;border-radius:50%;background:rgba(255,107,53,.14);filter:blur(90px)}
+  .glow{position:absolute;right:-160px;top:-160px;width:620px;height:620px;border-radius:50%;background:rgba(167,139,250,.16);filter:blur(90px)}
   .wrap{position:absolute;inset:72px 80px;display:flex;flex-direction:column}
   .mono{font-family:'JetBrains Mono',monospace}
   .eyebrow{font-size:22px;color:#8c8f98;letter-spacing:.02em}
   h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:112px;line-height:.95;letter-spacing:-.03em;margin-top:22px}
-  .roles{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;color:#ff6b35;margin-top:26px}
+  .roles{font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:34px;color:#a78bfa;margin-top:26px}
   .tag{font-size:28px;color:#b0b2ba;margin-top:18px;max-width:640px}
   .foot{margin-top:auto;display:flex;align-items:center;gap:14px;font-size:22px;color:#b0b2ba}
   .dot{width:14px;height:14px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 6px rgba(74,222,128,.15)}

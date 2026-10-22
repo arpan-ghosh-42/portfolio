@@ -29,7 +29,7 @@ export default function NeuralBackground() {
     let signals: Signal[] = [];
     let raf = 0;
     let frame = 0;
-    let colors = { accent: '#ff6b35', line: '#888' };
+    let colors = { accent: '#a78bfa', line: '#888' };
     const mouse = { x: -9999, y: -9999 };
 
     const readColors = () => {

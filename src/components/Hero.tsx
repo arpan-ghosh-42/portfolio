@@ -44,8 +44,6 @@ export function Hero() {
                 <span className="relative size-2 rounded-full bg-live" />
               </span>
               <span className="font-medium text-fg">{profile.status.label}</span>
-              <span aria-hidden className="text-line-strong">/</span>
-              <span>{profile.locationShort}</span>
             </p>
           )}
 

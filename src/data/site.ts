@@ -10,7 +10,7 @@ export const site = {
   ogImage: '/og-image.png',
   ogImageAlt: 'Arpan Ghosh, Machine Learning | Data Science | AI Engineer',
   locale: 'en_IN',
-  themeColor: { light: '#f5f3ee', dark: '#0d0e11' },
+  themeColor: { light: '#f7f6fb', dark: '#0d0c13' },
   keywords: [
     'Arpan Ghosh', 'machine learning', 'data science', 'AI engineer', 'computer vision',
     'internship', 'remote internship', 'portfolio', 'Kolkata',
