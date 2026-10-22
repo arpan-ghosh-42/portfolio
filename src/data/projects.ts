@@ -62,7 +62,7 @@ export const projects: Project[] = [
     repos: [{ label: 'GitHub', url: 'https://github.com/arpan-ghosh-42/AI-Attendance-System' }],
     image: {
       src: '/projects/attendly.webp',
-      alt: 'Attendly home screen with Student Portal and Teacher Portal options.',
+      alt: 'Attendly home screen: AI-powered attendance with face and voice recognition, and options to continue as a student or a teacher.',
       width: 1200,
       height: 675,
     },
