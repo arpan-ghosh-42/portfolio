@@ -6,14 +6,14 @@ export const site = {
   url: 'https://arpan-ghosh-portfolio.onrender.com',
   title: 'Arpan Ghosh · ML, Data Science & AI Engineer',
   description:
-    'Arpan Ghosh: M.Tech CS student in Kolkata looking for remote ML, Data Science and AI Engineer internships. Live demos of NibbleContract AI, Attendly and Movexa.',
+    'Arpan Ghosh: M.Tech CS student in Kolkata open to remote ML, Data Science and AI Engineer internships and jobs, anywhere. Live demos of NibbleContract AI, Attendly and Movexa.',
   ogImage: '/og-image.png',
   ogImageAlt: 'Arpan Ghosh, Machine Learning | Data Science | AI Engineer',
   locale: 'en_IN',
   themeColor: { light: '#f7f6fb', dark: '#0d0c13' },
   keywords: [
     'Arpan Ghosh', 'machine learning', 'data science', 'AI engineer', 'computer vision',
-    'internship', 'remote internship', 'portfolio', 'Kolkata',
+    'internship', 'remote internship', 'remote jobs', 'portfolio', 'Kolkata',
   ],
 };
 
@@ -66,7 +66,7 @@ export const sections = [
     id: 'contact',
     label: 'Contact',
     eyebrow: 'Contact',
-    title: 'Have a remote internship in ML, data or AI? Let’s talk.',
+    title: 'Hiring for a remote internship or job in ML, data or AI? Let’s talk.',
   },
 ] as const satisfies readonly { id: string; label: string; eyebrow: string; title: string; intro?: string }[];
 

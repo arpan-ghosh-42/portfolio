@@ -34,7 +34,7 @@ export function About() {
           <div className="card p-5 sm:p-6">
             <p className="eyebrow mb-3">Based in</p>
             <p className="font-medium">{profile.location}</p>
-            <p className="mt-1 font-mono text-xs text-subtle">{profile.timezone} · open to remote</p>
+            <p className="mt-1 font-mono text-xs text-subtle">{profile.timezone} · open to remote work anywhere</p>
           </div>
         </Reveal>
       </div>

@@ -38,9 +38,9 @@ export function Contact({ onCopied }: { onCopied: (ok: boolean) => void }) {
   };
 
   return (
-    <section id="contact" aria-labelledby="contact-title" className="py-20 outline-none sm:py-28">
+    <section id="contact" aria-labelledby="contact-title" className="py-8 outline-none sm:py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <Reveal className="card dot-grid relative overflow-hidden px-5 py-12 sm:px-12 sm:py-16">
+        <Reveal className="card dot-grid relative overflow-hidden px-5 py-10 sm:px-12 sm:py-12">
           <div aria-hidden className="absolute -right-24 -bottom-24 size-72 rounded-full bg-accent/15 blur-3xl" />
           <p className="eyebrow mb-3 flex items-center gap-3">
             <span className="text-subtle">{index}</span>

@@ -77,7 +77,7 @@
      This keeps the first render limited to the hero. */
   main > section:not(#top) {
     content-visibility: auto;
-    contain-intrinsic-size: auto 900px;
+    contain-intrinsic-size: auto 700px;
   }
   ::selection {
     background: var(--accent);

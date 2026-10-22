@@ -15,8 +15,8 @@ export const profile = {
   status: {
     /** Set to false to hide the green "open to" badge. */
     open: true,
-    label: 'Open to remote internships',
-    detail: 'Looking for remote ML, Data Science and AI Engineer internships.',
+    label: 'Open to remote internships & jobs',
+    detail: 'Looking for remote ML, Data Science and AI Engineer internships and jobs, anywhere in the world.',
     current: 'M.Tech student, Computer Science, Tripura University (2026–2028, 1st semester)',
   },
 
@@ -28,9 +28,6 @@ export const profile = {
   ],
   /** Short interest tags shown beside the bio. */
   interests: ['Research', 'Statistics', 'Computer vision', 'Zero-to-one projects'],
-
-  /** Square photo in public/. Set to undefined to hide the avatar. */
-  photo: { src: '/profile.webp', alt: 'Portrait of Arpan Ghosh', width: 320, height: 320 },
 
   email: 'arpanghosh6734@gmail.com',
   github: 'https://github.com/arpan-ghosh-42',
@@ -52,6 +49,6 @@ export const modelCard: { key: string; value: string }[] = [
   { key: 'interests', value: 'Research · statistics · computer vision' },
   { key: 'published', value: 'IEEE CCICT 2024 paper (co-author)' },
   { key: 'deployed', value: 'NibbleContract AI · Attendly · Movexa' },
-  { key: 'region', value: 'Kolkata, IN · remote-ready' },
-  { key: 'intended use', value: 'Remote ML / DS / AI Engineer internships' },
+  { key: 'region', value: 'Kolkata, IN · open to work anywhere' },
+  { key: 'intended use', value: 'Remote ML / DS / AI Engineer internships & jobs' },
 ];

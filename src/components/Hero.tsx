@@ -11,7 +11,7 @@ const step = (n: number) => ({ '--d': `${n * 70}ms` }) as CSSProperties;
 
 export function Hero() {
   return (
-    <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24">
+    <section id="top" aria-labelledby="hero-title" className="relative overflow-hidden pt-24 pb-6 sm:pt-28 sm:pb-10">
       <div
         aria-hidden
         className="dot-grid absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_30%_20%,black_20%,transparent_70%)]"
@@ -21,19 +21,8 @@ export function Hero() {
         className="absolute -top-40 -right-40 -z-10 size-[36rem] rounded-full bg-accent/10 blur-3xl dark:bg-accent/[0.07]"
       />
 
-      <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:gap-12">
         <div>
-          {profile.photo && (
-            <img
-              src={asset(profile.photo.src)}
-              alt={profile.photo.alt}
-              width={profile.photo.width}
-              height={profile.photo.height}
-              decoding="async"
-              style={step(0)}
-              className="rise mb-6 ml-1.5 size-28 rounded-full object-cover ring-2 ring-accent ring-offset-4 ring-offset-bg sm:mb-8 sm:size-40"
-            />
-          )}
           {profile.status.open && (
             <p
               style={step(0)}

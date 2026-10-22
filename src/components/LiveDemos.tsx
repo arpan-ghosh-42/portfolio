@@ -9,7 +9,7 @@ export function LiveDemos() {
   return (
     <Section
       id="demos"
-      className="pt-4 sm:pt-8"
+      className="pt-0 sm:pt-0"
     >
       <ul className="grid gap-4 md:grid-cols-3">
         {demos.map((p, i) => (
