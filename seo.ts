@@ -17,7 +17,7 @@ function personJsonLd() {
     '@type': 'Person',
     name: profile.name,
     url: site.url,
-    image: abs(site.ogImage),
+    image: abs(profile.photo?.src ?? site.ogImage),
     jobTitle: profile.headline,
     description: site.description,
     email: `mailto:${profile.email}`,

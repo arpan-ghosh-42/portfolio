@@ -29,6 +29,9 @@ export const profile = {
   /** Short interest tags shown beside the bio. */
   interests: ['Research', 'Statistics', 'Computer vision', 'Zero-to-one projects'],
 
+  /** Square photo in public/. Set to undefined to hide the avatar. */
+  photo: { src: '/profile.webp', alt: 'Portrait of Arpan Ghosh', width: 320, height: 320 },
+
   email: 'arpanghosh6734@gmail.com',
   github: 'https://github.com/arpan-ghosh-42',
   githubHandle: 'arpan-ghosh-42',

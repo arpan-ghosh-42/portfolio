@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import { modelCard, profile } from '../data/profile';
 import { useShortcutLabel } from '../hooks/useShortcutLabel';
-import { trackSpotlight } from '../lib/utils';
+import { asset, trackSpotlight } from '../lib/utils';
 
 /** Keeps ranges like 2021–2025 on one line (word joiners around the dash). */
 const WORD_JOINER = String.fromCharCode(0x2060);
@@ -30,6 +30,23 @@ export function ModelCard() {
             accepting requests
           </p>
         )}
+      </div>
+
+      <div className="flex items-center gap-4 border-b border-line px-5 py-4">
+        {profile.photo && (
+          <img
+            src={asset(profile.photo.src)}
+            alt={profile.photo.alt}
+            width={profile.photo.width}
+            height={profile.photo.height}
+            decoding="async"
+            className="size-16 shrink-0 rounded-full object-cover ring-2 ring-accent ring-offset-2 ring-offset-elev sm:size-20"
+          />
+        )}
+        <div className="min-w-0">
+          <p className="font-display text-lg leading-tight font-bold sm:text-xl">{profile.name}</p>
+          <p className="mt-1 text-sm text-muted">{profile.locationShort}</p>
+        </div>
       </div>
 
       <dl className="divide-y divide-line/70 px-5 py-2 font-mono text-[0.8125rem]">
