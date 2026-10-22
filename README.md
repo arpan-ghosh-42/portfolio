@@ -30,6 +30,7 @@ All text, links and data live in `src/data/`. You never need to touch the compon
 | --- | --- |
 | `src/data/profile.ts` | Name, headline, rotating roles, tagline, bio, status, location, email, GitHub, LinkedIn, resume path, and the hero "model card" rows |
 | `src/data/projects.ts` | Projects: text, tech chips, live / repo / video links, results, "How it works" pipeline steps, mini projects, plus the note under the live demos |
+| `src/data/publications.ts` | Research papers: title, venue, authors, links, summary, topic chips, the stages diagram and the citation text |
 | `src/data/skills.ts` | Skill groups and chips |
 | `src/data/education.ts` | Education timeline (newest first) |
 | `src/data/site.ts` | Site URL, SEO title and description, section headings and intros, footer text |

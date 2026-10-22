@@ -51,6 +51,12 @@ export const sections = [
     intro: 'Each card flips to show how the system works under the hood. Live demo and code on every one.',
   },
   {
+    id: 'publication',
+    label: 'Paper',
+    eyebrow: 'Publication',
+    title: 'Co-authored research, published with IEEE.',
+  },
+  {
     id: 'education',
     label: 'Education',
     eyebrow: 'Education',

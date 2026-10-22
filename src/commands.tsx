@@ -6,6 +6,7 @@ import {
 } from './components/icons';
 import { profile } from './data/profile';
 import { projects } from './data/projects';
+import { publications } from './data/publications';
 import { sections } from './data/site';
 import { skillGroups } from './data/skills';
 import { asset, scrollToId } from './lib/utils';
@@ -14,6 +15,7 @@ interface Actions {
   toggleTheme: () => void;
   toggleNeural: () => void;
   copyEmail: () => void;
+  copyText: (text: string, what: string) => void;
   filterBySkill: (skill: string) => void;
 }
 
@@ -63,6 +65,11 @@ export function buildCommands(a: Actions): Command[] {
         hint: '↗',
         run: () => open(r.url),
       })),
+    ]),
+
+    ...publications.flatMap((pub) => [
+      { id: `paper-${pub.doi}`, group: 'Publication', label: `Read the paper: ${pub.venue.match(/\(([^)]+)\)$/)?.[1] ?? pub.publisher} ${pub.year}`, keywords: `research ieee ${pub.title} ${pub.topics.join(' ')}`, icon: <ExternalIcon {...sm} />, hint: '↗', run: () => open(pub.url) },
+      { id: `cite-${pub.doi}`, group: 'Publication', label: 'Copy paper citation', keywords: 'cite reference bibtex ieee', icon: <CopyIcon {...sm} />, run: () => a.copyText(pub.citation, 'citation') },
     ]),
 
     { id: 'email', group: 'Contact', label: 'Email Arpan', keywords: `mail ${profile.email}`, icon: <MailIcon {...sm} />, run: () => (location.href = `mailto:${profile.email}`) },

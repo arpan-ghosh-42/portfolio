@@ -11,6 +11,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { LiveDemos } from './components/LiveDemos';
 import { Projects } from './components/Projects';
+import { Publications } from './components/Publications';
 import { ScrollProgress } from './components/ScrollProgress';
 import { Skills } from './components/Skills';
 import { Toast } from './components/Toast';
@@ -45,7 +46,7 @@ export default function App() {
   useKeySequence('ml', toggleNeural);
 
   const onCopied = useCallback(
-    (ok: boolean) => notify(ok ? `Copied ${profile.email}` : 'Could not copy. Select the address instead.'),
+    (ok: boolean, what: string = profile.email) => notify(ok ? `Copied ${what}` : 'Could not copy. Select the text instead.'),
     [notify],
   );
 
@@ -73,6 +74,7 @@ export default function App() {
         toggleTheme,
         toggleNeural,
         copyEmail: async () => onCopied(await copyText(profile.email)),
+        copyText: async (text, what) => onCopied(await copyText(text), what),
         filterBySkill: (s) => {
           setSkill(s);
           scrollToId('projects');
@@ -105,6 +107,7 @@ export default function App() {
           <About />
           <Skills active={skill} onSelect={setSkill} />
           <Projects activeSkill={skill} />
+          <Publications onCopied={onCopied} />
           <Education />
           <Contact onCopied={onCopied} />
         </main>

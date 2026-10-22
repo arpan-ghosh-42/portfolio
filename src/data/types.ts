@@ -73,6 +73,35 @@ export interface SkillGroup {
   skills: string[];
 }
 
+export interface Publication {
+  title: string;
+  /** Proceedings or journal name. */
+  venue: string;
+  /** e.g. "Conference paper" */
+  kind: string;
+  publisher: string;
+  /** Publication date as shown by the publisher. */
+  date: string;
+  year: string;
+  doi: string;
+  /** Page of the paper on the publisher's site. */
+  url: string;
+  /** Full author list, in the published order. */
+  authors: string[];
+  /** The author to highlight (must match an entry in `authors`). */
+  me: string;
+  /** Your role, shown as a small badge. Keep it accurate, e.g. "Co-author". */
+  role: string;
+  /** Plain-language summary, one paragraph per item. */
+  summary: string[];
+  /** Short topic chips. */
+  topics: string[];
+  /** Steps of the system described in the paper (animated diagram). */
+  stages: PipelineStep[];
+  /** Ready-to-paste citation for the "Copy citation" button. */
+  citation: string;
+}
+
 export interface EducationItem {
   degree: string;
   institution: string;

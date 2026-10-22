@@ -47,6 +47,7 @@ export const modelCard: { key: string; value: string }[] = [
   { key: 'base', value: 'BE, Chandigarh University (2021–2025)' },
   { key: 'fine-tuning', value: 'M.Tech CS, Tripura University (2026–2028)' },
   { key: 'interests', value: 'Research · statistics · computer vision' },
+  { key: 'published', value: 'IEEE CCICT 2024 paper (co-author)' },
   { key: 'deployed', value: 'NibbleContract AI · Attendly · Movexa' },
   { key: 'region', value: 'Kolkata, IN · remote-ready' },
   { key: 'intended use', value: 'Remote ML / DS / AI Engineer internships' },
