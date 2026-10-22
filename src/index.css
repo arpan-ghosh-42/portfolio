@@ -1,0 +1,219 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Design tokens. Light is the default; .dark on <html> swaps the palette. */
+:root {
+  --bg: #f5f3ee;
+  --bg-elev: #fcfbf8;
+  --surface: #ebe8e0;
+  --fg: #15161a;
+  --fg-muted: #4f5159;
+  --fg-subtle: #686a72;
+  --line: #dcd8ce;
+  --line-strong: #c7c2b5;
+  --accent: #c2410c;
+  --accent-fg: #ffffff;
+  --accent-soft: rgb(194 65 12 / 0.09);
+  --live: #15803d;
+  --grid-dot: rgb(21 22 26 / 0.09);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.6) inset, 0 12px 32px -18px rgb(40 30 20 / 0.28);
+  color-scheme: light;
+}
+
+.dark {
+  --bg: #0d0e11;
+  --bg-elev: #14161b;
+  --surface: #1c1f26;
+  --fg: #ecebe6;
+  --fg-muted: #b0b2ba;
+  --fg-subtle: #8c8f98;
+  --line: #262a33;
+  --line-strong: #363b46;
+  --accent: #ff6b35;
+  --accent-fg: #160d08;
+  --accent-soft: rgb(255 107 53 / 0.12);
+  --live: #4ade80;
+  --grid-dot: rgb(236 235 230 / 0.07);
+  --shadow: 0 1px 0 rgb(255 255 255 / 0.04) inset, 0 16px 40px -20px rgb(0 0 0 / 0.7);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-elev: var(--bg-elev);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-muted: var(--fg-muted);
+  --color-subtle: var(--fg-subtle);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-live: var(--live);
+  --shadow-card: var(--shadow);
+}
+
+@theme {
+  --font-display: 'Bricolage Grotesque', ui-sans-serif, system-ui, sans-serif;
+  --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+  --breakpoint-xs: 26rem;
+}
+
+@layer base {
+  html {
+    /* Smooth scrolling is done in JS (scrollToId) so it can respect reduced motion
+       and correct for lazily rendered sections. */
+    scroll-padding-top: 5rem;
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-bg text-fg font-sans antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  /* Skip layout and paint for off-screen sections until they approach the viewport.
+     This keeps the first render limited to the hero. */
+  main > section:not(#top) {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 900px;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-fg);
+  }
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Faint engineering-paper dot grid. */
+  .dot-grid {
+    background-image: radial-gradient(var(--grid-dot) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* Cursor-following highlight; --mx/--my are set from JS. */
+  .spotlight {
+    position: relative;
+    isolation: isolate;
+  }
+  .spotlight::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), var(--accent-soft), transparent 60%);
+  }
+  .spotlight:hover::before {
+    opacity: 1;
+  }
+
+  kbd {
+    @apply rounded border border-line-strong bg-surface px-1.5 py-px font-mono text-[0.7rem] text-muted;
+  }
+}
+
+@utility card {
+  @apply rounded-2xl border border-line bg-elev shadow-card;
+}
+
+@utility btn {
+  @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 text-sm font-semibold
+    whitespace-nowrap transition-[background-color,border-color,color,transform] duration-200 select-none
+    active:scale-[0.97];
+}
+
+@utility btn-primary {
+  @apply btn bg-accent text-accent-fg hover:brightness-110;
+}
+
+@utility btn-secondary {
+  @apply btn border border-line-strong bg-elev text-fg hover:border-fg;
+}
+
+@utility btn-ghost {
+  @apply btn px-3 text-muted hover:bg-surface hover:text-fg;
+}
+
+@utility btn-sm {
+  @apply min-h-9 px-3.5 text-[0.8125rem];
+}
+
+@utility chip {
+  @apply inline-flex items-center rounded-md border border-line bg-surface/60 px-2 py-0.5 font-mono text-[0.75rem]
+    leading-5 text-muted;
+}
+
+@utility eyebrow {
+  @apply font-mono text-xs tracking-wider text-accent uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* "How it works" pipeline: a packet of light travelling down the rail. */
+@keyframes packet {
+  0% { top: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: calc(100% - 8px); opacity: 0; }
+}
+@keyframes packet-x {
+  0% { left: 0; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { left: calc(100% - 8px); opacity: 0; }
+}
+@keyframes node-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--accent-soft); }
+  50% { box-shadow: 0 0 0 6px var(--accent-soft); }
+}
+/* Hero entrance: pure CSS so it runs on the prerendered HTML before JS loads. */
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms) both;
+}
+.rise-visible {
+  /* For the name and tagline: never fully transparent, so they paint on the first frame. */
+  animation: rise-visible 0.7s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0ms) both;
+}
+.slide-in {
+  animation: slide-in 0.5s ease-out var(--d, 0ms) both;
+}
+@keyframes rise {
+  from { opacity: 0; transform: translateY(18px); }
+}
+@keyframes rise-visible {
+  from { transform: translateY(14px); filter: blur(6px); }
+}
+@keyframes slide-in {
+  from { opacity: 0; transform: translateX(-8px); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+@keyframes caret {
+  50% { opacity: 0; }
+}
+@keyframes ping-soft {
+  75%, 100% { transform: scale(2.2); opacity: 0; }
+}
