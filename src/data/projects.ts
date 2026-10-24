@@ -2,7 +2,7 @@ import type { Project } from './types.ts';
 
 // Your projects, in display order.
 //
-// To add measured results later, fill in `results`, e.g.
+// Measured results go in `results`, e.g.
 //   results: [{ label: 'Face ID accuracy', value: '96%', note: '40 group photos, 2 classes' }],
 // The results block only appears when the array has items.
 //
@@ -17,31 +17,34 @@ export const projects: Project[] = [
   {
     id: 'nibblecontract',
     name: 'NibbleContract AI',
-    subtitle: 'Contract & internship authenticity checker',
+    subtitle: 'Internship & offer letter authenticity checker',
     summary:
-      'Turns internship offers, rental and loan agreements into a plain-language risk report, with an explainable 0–100 fake-internship trust score.',
+      'Checks an internship before you apply and the offer before you sign, with an explainable 0–100 trust score and the evidence behind every point.',
     description: [
-      'Upload a PDF or paste text and get ranked red flags, deadlines, money terms and questions to ask before signing.',
-      'The LLM only extracts evidence; fixed rules do the scoring. Quotes not found verbatim in the document are discarded, and RDAP domain-age plus SSRF-safe website checks add extra signals.',
+      'Paste a job post (or a link to it) before applying, or upload an offer letter (PDF or text) before signing. The report gives a risk level, warning and good signs with evidence, and questions to ask.',
+      'AI models only find evidence; fixed Python rules turn it into the score. Every quote must exist in the document, and every web finding must link to a page a tool actually returned, or it is not counted. Three research agents check reputation, company and funding in parallel.',
     ],
-    tech: ['Python', 'Flask', 'Groq LLM', 'OpenAI-compatible API', 'pypdf', 'RDAP'],
-    skills: ['Python', 'Flask', 'Groq & OpenAI APIs', 'REST APIs', 'RDAP', 'Render', 'Git'],
+    tech: ['Python', 'Flask', 'Groq LLM', 'Agno agents', 'Tavily search', 'Pydantic', 'pypdf', 'RDAP'],
+    skills: ['Python', 'Flask', 'Groq & OpenAI APIs', 'REST APIs', 'Tavily', 'RDAP', 'Render', 'Git'],
     live: 'https://nibblecontract-ai.onrender.com',
     repos: [{ label: 'GitHub', url: 'https://github.com/arpan-ghosh-42/NibbleContract-AI' }],
     image: {
       src: '/projects/nibblecontract.webp',
-      alt: 'NibbleContract AI home page: a sample internship offer flagged with four red flags and a trust score of 1 out of 100.',
+      alt: 'NibbleContract AI home page: "Is that internship the real thing?" with a sample offer letter flagged as high risk, four red flags and a trust score of 0 out of 100.',
       width: 1200,
       height: 675,
     },
     video: undefined, // e.g. 'https://www.loom.com/share/...'
-    results: [],
+    results: [
+      { label: 'Red flags caught', value: '90%', note: 'Tested on 30 real documents' },
+      { label: 'Fake-offer detection', value: '93%', note: 'Accuracy, same 30 documents' },
+    ],
     pipeline: [
-      { label: 'Upload', detail: 'PDF or pasted text: offer letter, rental or loan agreement.' },
-      { label: 'LLM extracts evidence', detail: 'The model pulls out clauses, money terms and deadlines. It does not score.' },
-      { label: 'Rules score', detail: 'Fixed, explainable rules turn evidence into a 0–100 trust score.' },
-      { label: 'Verify quotes', detail: 'Any quote not found verbatim in the document is thrown away.' },
-      { label: 'Report', detail: 'Ranked red flags, deadlines, money terms and questions to ask.' },
+      { label: 'Job post or offer letter', detail: 'Paste a post or a link, or upload an offer letter (PDF or text).' },
+      { label: 'Post analyst', detail: 'An LLM finds warning and good signs with verbatim quotes, and the internship type.' },
+      { label: 'Research agents', detail: 'Reputation, company and funding agents run in parallel with web search and domain lookups.' },
+      { label: 'Grounding check', detail: 'Quotes must exist in the text; web findings must link to a page a tool returned.' },
+      { label: 'Rules score + report', detail: 'Fixed rules give a 0–100 score and risk level, with the evidence and questions to ask.' },
     ],
   },
   {
@@ -67,7 +70,11 @@ export const projects: Project[] = [
       height: 675,
     },
     video: undefined, // e.g. 'https://www.loom.com/share/...'
-    results: [],
+    results: [
+      { label: 'Face-match accuracy', value: '95%', note: 'Across 25 students' },
+      { label: 'False accepts', value: '2%' },
+      { label: 'False rejects', value: '4%' },
+    ],
     pipeline: [
       { label: 'Group photo', detail: 'One photo of the whole class.' },
       { label: 'Face detection', detail: 'Every face in the frame is located and cropped.' },
@@ -97,7 +104,10 @@ export const projects: Project[] = [
       height: 675,
     },
     video: undefined, // e.g. 'https://www.loom.com/share/...'
-    results: [],
+    results: [
+      { label: 'Rep-count accuracy', value: '95%' },
+      { label: 'Time per frame', value: '~30 ms' },
+    ],
     pipeline: [
       { label: 'Camera', detail: 'Your webcam or phone camera, in the browser.' },
       { label: 'WebRTC stream', detail: 'Frames stream live to the app.' },
