@@ -102,6 +102,25 @@ export interface Publication {
   citation: string;
 }
 
+export interface TrainingItem {
+  /** What was studied, e.g. "Machine Learning". */
+  title: string;
+  /** Who ran it, e.g. "Internshala Trainings". */
+  provider: string;
+  /** Programme name, if it has one (e.g. "Prime 2.0"). */
+  program?: string;
+  /** Length and format, e.g. "6-week online training". */
+  format: string;
+  /** When it happened, if you want a date shown. */
+  date?: string;
+  /** Small badge, e.g. "Completed" or "Certified". */
+  status: string;
+  /** Topics covered, shown as chips. */
+  topics?: string[];
+  /** Link to a certificate you can share. */
+  certificate?: string;
+}
+
 export interface EducationItem {
   degree: string;
   institution: string;

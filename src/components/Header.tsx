@@ -43,7 +43,7 @@ export function Header({ onToggleTheme, onOpenPalette }: HeaderProps) {
           <span className="sr-only">{profile.name}, back to top</span>
         </a>
 
-        <nav aria-label="Sections" className="ml-auto hidden lg:block">
+        <nav aria-label="Sections" className="ml-auto hidden xl:block">
           <ul className="flex items-center gap-1">
             {sections.map((s) => (
               <li key={s.id}>
@@ -70,7 +70,7 @@ export function Header({ onToggleTheme, onOpenPalette }: HeaderProps) {
           </ul>
         </nav>
 
-        <div className="ml-auto flex items-center gap-1.5 lg:ml-4">
+        <div className="ml-auto flex items-center gap-1.5 xl:ml-4">
           <button
             type="button"
             onClick={onOpenPalette}

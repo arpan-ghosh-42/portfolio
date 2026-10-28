@@ -26,7 +26,7 @@ export const projects: Project[] = [
     ],
     tech: ['Python', 'Flask', 'Groq LLM', 'Agno agents', 'Tavily search', 'Pydantic', 'pypdf', 'RDAP'],
     skills: ['Python', 'Flask', 'Groq & OpenAI APIs', 'REST APIs', 'Tavily', 'RDAP', 'Render', 'Git'],
-    live: 'https://nibblecontract-ai.onrender.com',
+    live: 'https://nibblecontractai.in',
     repos: [{ label: 'GitHub', url: 'https://github.com/arpan-ghosh-42/NibbleContract-AI' }],
     image: {
       src: '/projects/nibblecontract.webp',
@@ -61,7 +61,7 @@ export const projects: Project[] = [
       'Python', 'Streamlit', 'scikit-learn', 'SVM', 'dlib', 'Face & speaker embeddings',
       'Resemblyzer', 'librosa', 'SQL', 'NumPy', 'pandas', 'Render', 'Git',
     ],
-    live: 'https://attendly-2v69.onrender.com/',
+    live: 'https://attendly-58a5.onrender.com/',
     repos: [{ label: 'GitHub', url: 'https://github.com/arpan-ghosh-42/AI-Attendance-System' }],
     image: {
       src: '/projects/attendly.webp',
@@ -95,7 +95,7 @@ export const projects: Project[] = [
     ],
     tech: ['Python', 'Streamlit', 'WebRTC', 'MediaPipe pose', 'RAG', 'LLM API', 'Docker'],
     skills: ['Python', 'Streamlit', 'MediaPipe', 'RAG', 'Docker', 'Render', 'Git'],
-    live: 'https://ai-gym-coach-b5j7.onrender.com',
+    live: 'https://movexa-13fp.onrender.com/',
     repos: [{ label: 'GitHub', url: 'https://github.com/arpan-ghosh-42/ai-gym-coach' }],
     image: {
       src: '/projects/movexa.webp',

@@ -9,6 +9,7 @@ import { projects } from './data/projects';
 import { publications } from './data/publications';
 import { sections } from './data/site';
 import { skillGroups } from './data/skills';
+import { training } from './data/training';
 import { asset, scrollToId } from './lib/utils';
 
 interface Actions {
@@ -71,6 +72,18 @@ export function buildCommands(a: Actions): Command[] {
       { id: `paper-${pub.doi}`, group: 'Publication', label: `Read the paper: ${pub.venue.match(/\(([^)]+)\)$/)?.[1] ?? pub.publisher} ${pub.year}`, keywords: `research ieee ${pub.title} ${pub.topics.join(' ')}`, icon: <ExternalIcon {...sm} />, hint: '↗', run: () => open(pub.url) },
       { id: `cite-${pub.doi}`, group: 'Publication', label: 'Copy paper citation', keywords: 'cite reference bibtex ieee', icon: <CopyIcon {...sm} />, run: () => a.copyText(pub.citation, 'citation') },
     ]),
+
+    ...training
+      .filter((t) => t.certificate)
+      .map((t) => ({
+        id: `cert-${t.provider}`,
+        group: 'Training',
+        label: `${t.provider} certificate: ${t.title}`,
+        keywords: 'training course certificate',
+        icon: <ExternalIcon {...sm} />,
+        hint: '↗',
+        run: () => open(t.certificate!),
+      })),
 
     { id: 'email', group: 'Contact', label: 'Email Arpan', keywords: `mail ${profile.email}`, icon: <MailIcon {...sm} />, run: () => (location.href = `mailto:${profile.email}`) },
     { id: 'copy-email', group: 'Contact', label: 'Copy email address', keywords: 'clipboard', icon: <CopyIcon {...sm} />, run: a.copyEmail },

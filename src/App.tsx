@@ -15,6 +15,7 @@ import { Publications } from './components/Publications';
 import { ScrollProgress } from './components/ScrollProgress';
 import { Skills } from './components/Skills';
 import { Toast } from './components/Toast';
+import { Training } from './components/Training';
 import { profile } from './data/profile';
 import { useKeySequence } from './hooks/useKeySequence';
 import { useTheme } from './hooks/useTheme';
@@ -108,6 +109,7 @@ export default function App() {
           <Skills active={skill} onSelect={setSkill} />
           <Projects activeSkill={skill} />
           <Publications onCopied={onCopied} />
+          <Training />
           <Education />
           <Contact onCopied={onCopied} />
         </main>
